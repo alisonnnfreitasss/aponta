@@ -1,0 +1,21 @@
+{
+  "name": "aponta",
+  "version": "0.1.0",
+  "description": "Assista o vídeo do HyperFrames direto do código, aponte o que está errado no quadro, e o Claude corrige. Sem render.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "doctor": "node src/doctor.mjs",
+    "setup": "node scripts/install.mjs",
+    "start": "node src/server.mjs"
+  },
+  "dependencies": {
+    "@hyperframes/core": "0.9.22",
+    "@hyperframes/player": "0.9.22",
+    "puppeteer-core": "25.16.0"
+  }
+}

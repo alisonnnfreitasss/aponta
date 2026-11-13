@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, height=1080">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #0f1220; }
+#root { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; }
+.bg { position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, #2b3a8f 0%, #0f1220 60%); }
+#title { position: absolute; left: 160px; top: 330px; font-size: 128px; font-weight: 800; color: #fff; letter-spacing: -2px; }
+#sub { position: absolute; left: 166px; top: 500px; font-size: 48px; color: #a9b4ff; }
+#ball { position: absolute; left: 160px; top: 700px; width: 140px; height: 140px; border-radius: 50%; background: #ff7a1a; }
+#tag { position: absolute; right: 120px; bottom: 90px; font-size: 32px; color: #6c75a8; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="exemplo" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+  <div class="bg clip" data-start="0" data-duration="6" data-track-index="0"></div>
+  <!-- O erro de propósito: "Apnota". Circule no Aponta e peça pro Claude corrigir. -->
+  <div id="title" class="clip" data-start="0" data-duration="6" data-track-index="1">Bem-vindo ao Apnota</div>
+  <div id="sub" class="clip" data-start="0" data-duration="6" data-track-index="2">Seu primeiro filme pra testar</div>
+  <div id="ball" class="clip" data-start="0" data-duration="6" data-track-index="3"></div>
+  <div id="tag" class="clip" data-start="0" data-duration="6" data-track-index="4">feito em código, sem render</div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.from("#title", { y: 60, opacity: 0, duration: 0.8, ease: "power3.out" }, 0.2)
+  .from("#sub", { y: 40, opacity: 0, duration: 0.8, ease: "power3.out" }, 0.6)
+  .to("#ball", { x: 1460, duration: 4, ease: "power1.inOut" }, 1)
+  .from("#tag", { opacity: 0, duration: 0.6 }, 1.5);
+window.__timelines = window.__timelines || {};
+window.__timelines["exemplo"] = tl;
+</script>
+</body>
+</html>
